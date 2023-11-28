@@ -1,0 +1,28 @@
+{
+  "fileName": "main",
+  "fileType": "folder",
+  "files": [
+    {
+      "fileName": "file1",
+      "fileType": "file"
+    },
+    {
+      "fileName": "file2",
+      "fileType": "file"
+    },
+    {
+      "fileName": "folder1",
+      "fileType": "folder",
+      "files": [
+        {
+          "fileName": "fileinfolder1",
+          "fileType": "file"
+        },
+        {
+          "fileName": "fileinfolder2",
+          "fileType": "file"
+        }
+      ]
+    }
+  ]
+}

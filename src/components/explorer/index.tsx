@@ -1,18 +1,33 @@
-import { Link } from "react-router-dom";
+import { useState } from "react";
+import { IFile } from "../../types/IFile";
+import { EFileType } from "../../types/EFileType";
 import "./explorer.sass";
 
-const Explorer = () => {
+interface Props {
+	file: IFile;
+}
+
+const Explorer = ({ file }: Props) => {
+	const [isOpen, setOpen] = useState(false);
+
+	const handleClick = () => {
+		setOpen(!isOpen);
+	};
+
 	return (
 		<div className="explorer">
-			{/* <div className="explorer__btn-list">
-            <div className="explorer__btn">create file</div>
-            <div className="explorer__btn">create file</div>
-        </div> */}
-			<div className="explorer__list">
-				<Link to="/1">1</Link>
-				<Link to="/2">2</Link>
-				<Link to="/3">3</Link>
-			</div>
+			{file.fileType === EFileType.file && (
+				<div className="file-name">{file.fileName}</div>
+			)}
+
+			{file.fileType === EFileType.folder && (
+				<>
+					<div className="file-name" onClick={handleClick}>
+						{file.fileName}
+					</div>
+					{isOpen && file.files?.map((item) => <Explorer file={item} />)}
+				</>
+			)}
 		</div>
 	);
 };
