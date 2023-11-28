@@ -1,5 +1,5 @@
 const Mapper = () => {
-  return <></>;
+	return <></>;
 };
 
 export default Mapper;

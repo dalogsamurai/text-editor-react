@@ -1,14 +1,14 @@
 import { useParams } from "react-router-dom";
 
 const Editor = () => {
-  const { id } = useParams();
+	const { id } = useParams();
 
-  return (
-    <div className="">
-      {id}
-      <textarea />
-    </div>
-  );
+	return (
+		<div className="">
+			{id}
+			<textarea />
+		</div>
+	);
 };
 
 export default Editor;
