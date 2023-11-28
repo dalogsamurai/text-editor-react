@@ -1,24 +1,30 @@
 {
+  "id": "main",
   "fileName": "main",
   "fileType": "folder",
   "files": [
     {
+      "id": 1,
       "fileName": "file1",
       "fileType": "file"
     },
     {
+      "id": 2,
       "fileName": "file2",
       "fileType": "file"
     },
     {
+      "id": 3,
       "fileName": "folder1",
       "fileType": "folder",
       "files": [
         {
+          "id": 4,
           "fileName": "fileinfolder1",
           "fileType": "file"
         },
         {
+          "id": 5,
           "fileName": "fileinfolder2",
           "fileType": "file"
         }

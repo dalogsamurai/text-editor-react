@@ -6,7 +6,9 @@ import "./file.page.sass";
 const FilePage = () => {
 	return (
 		<div className="file-page">
-			<Explorer file={files} />
+			<div className="file-page__explorer">
+				<Explorer file={files} />
+			</div>
 			<Editor />
 		</div>
 	);
