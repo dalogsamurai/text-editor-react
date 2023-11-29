@@ -4,5 +4,12 @@ export const defaultFolder = JSON.stringify({
 	id: 0,
 	fileName: "main",
 	fileType: "folder",
-	files: [],
+	files: [
+		{
+			id: 1,
+			fileName: "folder",
+			fileType: "folder",
+			files: [],
+		},
+	],
 });
