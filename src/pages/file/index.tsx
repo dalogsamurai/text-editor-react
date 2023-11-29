@@ -2,6 +2,8 @@ import { createContext, useContext, useEffect } from "react";
 import Editor from "../../components/editor";
 import Explorer from "../../components/explorer";
 import { LS_FILES } from "../../const";
+import { useSelector } from "react-redux";
+import { TFilesState } from "../../types/TFilesState";
 import "./file.page.sass";
 
 export const ParentContext = createContext(
@@ -9,7 +11,9 @@ export const ParentContext = createContext(
 );
 
 const FilePage = () => {
-	const files = JSON.parse(localStorage.getItem(LS_FILES)!);
+	const files = useSelector((state: TFilesState) => state.files);
+	console.log(files);
+	// const files = JSON.parse(localStorage.getItem(LS_FILES)!);
 	//   let parentFolder = useContext(ParentContext);
 
 	//   useEffect(() => {
