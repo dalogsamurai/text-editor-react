@@ -1,13 +1,27 @@
+import { createContext, useContext, useEffect } from "react";
 import Editor from "../../components/editor";
 import Explorer from "../../components/explorer";
-import files from "../../static/files.json";
+import { LS_FILES } from "../../const";
 import "./file.page.sass";
 
+export const ParentContext = createContext(
+	JSON.parse(localStorage.getItem(LS_FILES)!),
+);
+
 const FilePage = () => {
+	const files = JSON.parse(localStorage.getItem(LS_FILES)!);
+	//   let parentFolder = useContext(ParentContext);
+
+	//   useEffect(() => {
+	//     console.log("files");
+	//   }, [parentFolder]);
+
 	return (
 		<div className="file-page">
 			<div className="file-page__explorer">
-				<Explorer file={files} />
+				<ParentContext.Provider value={files.files}>
+					<Explorer file={files} />
+				</ParentContext.Provider>
 			</div>
 			<Editor />
 		</div>
