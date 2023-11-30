@@ -10,10 +10,10 @@ import "./explorer.component.sass";
 
 interface Props {
 	file: IFile;
-	onChange: (fileId: number) => void;
+	onDelete: (fileId: number) => void;
 }
 
-const Explorer = ({ file, onChange }: Props) => {
+const Explorer = ({ file, onDelete }: Props) => {
 	const [isFolderOpen, setFolderOpen] = useState(false);
 	const [isInputOpen, setInputOpen] = useState(false);
 	const [fileType, setFileType] = useState(EFileType.file);
@@ -30,15 +30,15 @@ const Explorer = ({ file, onChange }: Props) => {
 	};
 
 	const handleDeleteClick = () => {
-		handleChange(file.id);
+		updateFileList(file.id);
 	};
 
-	const handleChange = (fileId: number) => {
+	const updateFileList = (fileId: number) => {
 		if (file.files?.some((item) => fileId === item.id)) {
 			file.files = file.files.filter((item) => item.id !== fileId);
 			setFileList(file.files);
 		} else {
-			onChange(fileId);
+			onDelete(fileId);
 		}
 	};
 
@@ -56,9 +56,6 @@ const Explorer = ({ file, onChange }: Props) => {
 		}
 
 		setFileList(file.files);
-
-		// TODO
-		// localStorage.
 
 		setInputOpen(false);
 	};
@@ -146,7 +143,7 @@ const Explorer = ({ file, onChange }: Props) => {
 					{isFolderOpen &&
 						fileList &&
 						fileList.map((item) => (
-							<Explorer file={item} onChange={handleChange} />
+							<Explorer file={item} onDelete={updateFileList} />
 						))}
 				</div>
 			)}

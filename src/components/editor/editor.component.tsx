@@ -1,15 +1,16 @@
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { LS_FILES_DATA } from "../../const";
+import { IFileData } from "../../types/IFileData";
 import "./editor.component.sass";
 
 const Editor = () => {
 	const { id } = useParams();
 	const [fileData, setFileData] = useState("");
-	const filesDataStorage = JSON.parse(localStorage.getItem(LS_FILES_DATA)!);
+	const filesDataLs = JSON.parse(localStorage.getItem(LS_FILES_DATA)!);
 
 	useEffect(() => {
-		const res = filesDataStorage.find((item: any) => item.id === id);
+		const res = filesDataLs.find((item: IFileData) => item.id === id);
 		if (res) {
 			setFileData(res.data);
 		} else {
@@ -18,21 +19,20 @@ const Editor = () => {
 	}, [id]);
 
 	useEffect(() => {
-		const res = filesDataStorage.find((item: any) => item.id === id);
+		const fileDataLs = filesDataLs.find((item: IFileData) => item.id === id);
 
-		if (res) {
+		if (fileDataLs) {
 			localStorage.setItem(
 				LS_FILES_DATA,
 				JSON.stringify([
-					// @ts-ignore
-					...filesDataStorage.filter((item) => item.id !== id),
+					...filesDataLs.filter((item: IFileData) => item.id !== id),
 					{ id: id, data: fileData },
 				]),
 			);
 		} else {
 			localStorage.setItem(
 				LS_FILES_DATA,
-				JSON.stringify([...filesDataStorage, { id: id, data: fileData }]),
+				JSON.stringify([...filesDataLs, { id: id, data: fileData }]),
 			);
 			setFileData(fileData);
 		}

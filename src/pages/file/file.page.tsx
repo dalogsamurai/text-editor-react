@@ -9,7 +9,7 @@ const FilePage = () => {
 	const files = JSON.parse(localStorage.getItem(LS_FILES)!);
 	const [fileList, setFileList] = useState(files);
 
-	const onChange = (fileId: number) => {
+	const onDelete = (fileId: number) => {
 		if (files?.some((item: IFile) => fileId === item.id)) {
 			setFileList(files.filter((item: IFile) => item.id !== fileId));
 		}
@@ -18,7 +18,7 @@ const FilePage = () => {
 	return (
 		<div className="file-page">
 			<div className="file-page__explorer">
-				<Explorer file={fileList} onChange={onChange} />
+				<Explorer file={fileList} onDelete={onDelete} />
 			</div>
 			<Editor />
 		</div>
