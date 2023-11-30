@@ -6,7 +6,6 @@ import iFolder from "../../assets/folder-icon.svg";
 import iAdd from "../../assets/add-icon.svg";
 import iDelete from "../../assets/delete-icon.svg";
 import { Link } from "react-router-dom";
-import { ParentContext } from "../../pages/file";
 import "./explorer.sass";
 
 interface Props {
@@ -144,9 +143,7 @@ const Explorer = ({ file, onChange }: Props) => {
 					{isFolderOpen &&
 						fileList &&
 						fileList.map((item) => (
-							<ParentContext.Provider value={file.files!}>
-								<Explorer file={item} onChange={handleChange} />
-							</ParentContext.Provider>
+							<Explorer file={item} onChange={handleChange} />
 						))}
 				</div>
 			)}
