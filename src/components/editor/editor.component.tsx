@@ -1,7 +1,7 @@
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { LS_FILES_DATA } from "../../const";
-import "./editor.sass";
+import "./editor.component.sass";
 
 const Editor = () => {
 	const { id } = useParams();

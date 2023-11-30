@@ -1,6 +1,6 @@
 import { RouteObject, useRoutes } from "react-router-dom";
 import { MAIN_PATH } from "./routes";
-import FilePage from "./pages/file";
+import FilePage from "./pages/file/file.page";
 import {
 	LS_FILES,
 	LS_FILES_DATA,

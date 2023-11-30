@@ -1,6 +1,6 @@
 import { useState } from "react";
-import Editor from "../../components/editor";
-import Explorer from "../../components/explorer";
+import Editor from "../../components/editor/editor.component";
+import Explorer from "../../components/explorer/explorer.component";
 import { LS_FILES } from "../../const";
 import { IFile } from "../../types/IFile";
 import "./file.page.sass";

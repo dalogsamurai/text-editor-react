@@ -6,7 +6,7 @@ import iFolder from "../../assets/folder-icon.svg";
 import iAdd from "../../assets/add-icon.svg";
 import iDelete from "../../assets/delete-icon.svg";
 import { Link } from "react-router-dom";
-import "./explorer.sass";
+import "./explorer.component.sass";
 
 interface Props {
 	file: IFile;
