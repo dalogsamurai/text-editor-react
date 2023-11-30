@@ -122,8 +122,11 @@ const Explorer = ({ file, onChange }: Props) => {
 								//   @ts-ignore
 								onInput={(e) => setFileName(e.target.value)}
 							/>
-							{/* @ts-ignore */}
-							<select onChange={(e) => setFileType(e.target.value)}>
+							<select
+								defaultValue={fileType}
+								// @ts-ignore
+								onChange={(e) => setFileType(e.target.value)}
+							>
 								<option value={EFileType.file}>File</option>
 								<option value={EFileType.folder}>Folder</option>
 							</select>
