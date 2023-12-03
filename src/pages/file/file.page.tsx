@@ -1,11 +1,24 @@
 import { useState } from "react";
 import Editor from "../../components/editor/editor.component";
 import Explorer from "../../components/explorer/explorer.component";
-import { LS_FILES } from "../../const";
+import {
+	LS_FILES,
+	LS_FILES_DATA,
+	defaultFilesData,
+	defaultFolder,
+} from "../../const";
 import { IFile } from "../../types/IFile";
 import "./file.page.sass";
 
 const FilePage = () => {
+	if (localStorage.getItem(LS_FILES) === null) {
+		localStorage.setItem(LS_FILES, defaultFolder);
+	}
+
+	if (localStorage.getItem(LS_FILES_DATA) === null) {
+		localStorage.setItem(LS_FILES_DATA, defaultFilesData);
+	}
+
 	const files = JSON.parse(localStorage.getItem(LS_FILES)!);
 	const [fileList, setFileList] = useState(files);
 
@@ -15,9 +28,14 @@ const FilePage = () => {
 		}
 	};
 
+	const updateFiles = () => {
+		localStorage.setItem(LS_FILES, JSON.stringify(files));
+	};
+
 	return (
 		<div className="file-page">
-			<div className="file-page__explorer">
+			{/* rome-ignore lint/a11y/useKeyWithClickEvents: <explanation> */}
+			<div className="file-page__explorer" onClick={updateFiles}>
 				<Explorer file={fileList} onDelete={onDelete} />
 			</div>
 			<Editor />

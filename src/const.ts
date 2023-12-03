@@ -8,4 +8,4 @@ export const defaultFolder = JSON.stringify({
 	files: [],
 });
 
-export const defaultFilesData = JSON.stringify([]);
+export const defaultFilesData = JSON.stringify([{ data: "" }]);

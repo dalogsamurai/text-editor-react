@@ -1,16 +1,7 @@
 import { RouteObject, useRoutes } from "react-router-dom";
 import { MAIN_PATH } from "./routes";
 import FilePage from "./pages/file/file.page";
-import {
-	LS_FILES,
-	LS_FILES_DATA,
-	defaultFilesData,
-	defaultFolder,
-} from "./const";
 import "./App.sass";
-
-localStorage.setItem(LS_FILES, defaultFolder);
-localStorage.setItem(LS_FILES_DATA, defaultFilesData);
 
 function App() {
 	const routes: RouteObject[] = [
