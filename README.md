@@ -1,3 +1,9 @@
+First of all you need to install node_modules by runnung:
+
+### `npm i`
+
+Then run:
+
 ### `npm start`
 
 Runs the app in the development mode.\
